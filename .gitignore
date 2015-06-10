@@ -41,3 +41,9 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+target/test-classes/com/kuta/just8023/service/test/Test.class
+target/test-classes/com/kuta/just8023/redis/test/RedisUtil.class
+target/classes/META-INF/maven/com.kuta.just8023/just8023/pom.properties
+target/classes/com/kuta/just8023/controller/HolleWorldController.class
+target/test-classes/com/kuta/just8023/redis/test/TestRedis.class
+target/classes/META-INF/MANIFEST.MF

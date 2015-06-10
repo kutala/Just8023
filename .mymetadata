@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Just8023"
+  id="myeclipse.1431585665014"
+  context-root="/Just8023"
+  j2ee-spec="6.0"
+  archive="Just8023.war">
+  <attributes>
+    <attribute name="webrootdir" value="&lt;prjroot&gt;" />
+  </attributes>
+</project-module>
+
