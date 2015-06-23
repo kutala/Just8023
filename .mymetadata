@@ -7,7 +7,7 @@
   j2ee-spec="6.0"
   archive="Just8023.war">
   <attributes>
-    <attribute name="webrootdir" value="&lt;prjroot&gt;" />
+    <attribute name="webrootdir" value="src/main/webapp" />
   </attributes>
 </project-module>
 

@@ -48,6 +48,53 @@
 		<artifactId>commons-pool2</artifactId>
 		<version>2.3</version>
 	</dependency>
+	
+	<!-- jsckson dependencies -->
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.9.9</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-core-asl</artifactId>
+		<version>1.9.9</version>
+	</dependency>
+	
+	<!-- commons dependencies -->
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.4</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-codec</groupId>
+		<artifactId>commons-codec</artifactId>
+		<version>1.10</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-httpclient</groupId>
+		<artifactId>commons-httpclient</artifactId>
+		<version>3.1</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-logging</groupId>
+		<artifactId>commons-logging</artifactId>
+		<version>1.0.4</version>
+	</dependency>
+	
+	<!-- servlet-api dependencies -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+	</dependency>
+		
+	<!-- log4j dependencies -->
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.17</version>
+	</dependency>
   </dependencies>
-  
 </project>
