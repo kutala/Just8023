@@ -1,4 +1,4 @@
-package com.kuta.just8023.service.test;
+package com.kuta.just8023.test.service;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

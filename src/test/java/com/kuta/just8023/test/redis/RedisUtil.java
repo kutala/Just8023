@@ -1,4 +1,4 @@
-package com.kuta.just8023.redis.test;
+package com.kuta.just8023.test.redis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -17,7 +17,7 @@ public final class RedisUtil {
     
     //可用连接实例的最大数目，默认值为8；
     //如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。
-    private static int MAX_ACTIVE = 1024;
+//    private static int MAX_ACTIVE = 1024;
     
     //控制一个pool最多有多少个状态为idle(空闲的)的jedis实例，默认值也是8。
     private static int MAX_IDLE = 200;

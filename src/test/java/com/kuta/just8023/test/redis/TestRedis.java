@@ -1,4 +1,4 @@
-package com.kuta.just8023.redis.test;
+package com.kuta.just8023.test.redis;
 
 import java.util.HashMap;
 import java.util.Iterator;

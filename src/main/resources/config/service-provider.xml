@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<bean id="helloWorldService" class="com.kuta.just8023.service.imp.HelloWorldServiceImp" />  
+	
+	<dubbo:application name="provider"/>    
+    
+	<dubbo:provider serialization="kryo" codec="dubbo" server="netty" client="netty" threadpool="cached"
+		connections="1" loadbalance="consistenthash" cluster="failfast" delay="-1" timeout="10000" />
+		 
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+	
+    <dubbo:monitor protocol="registry"/>
+
+    <dubbo:protocol name="kryo" port="20880" />
+
+	<dubbo:service interface="com.kuta.just8023.service.HelloWorldService" ref="helloWorldService"  protocol="dubbo" delay="-1" version="1.0.0"/>
+	
+</beans>
