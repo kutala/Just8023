@@ -50,3 +50,5 @@ target/classes/META-INF/MANIFEST.MF
 *.class
 target/classes/META-INF/maven/com.kuta.just8023/just8023/pom.xml
 target/classes/config/applicationContext.xml
+target/classes/mapper/OaUserContractMapper.xml
+target/classes/mapper/OaSysDicMapper.xml

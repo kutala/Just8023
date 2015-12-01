@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.CaseMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.Case" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="case_student_name" property="caseStudentName" jdbcType="VARCHAR" />
+    <result column="case_student_school" property="caseStudentSchool" jdbcType="VARCHAR" />
+    <result column="case_student_professional" property="caseStudentProfessional" jdbcType="INTEGER" />
+    <result column="case_student_year" property="caseStudentYear" jdbcType="VARCHAR" />
+    <result column="case_url" property="caseUrl" jdbcType="VARCHAR" />
+    <result column="case_type" property="caseType" jdbcType="INTEGER" />
+    <result column="case_status" property="caseStatus" jdbcType="INTEGER" />
+    <result column="case_goods_id" property="caseGoodsId" jdbcType="INTEGER" />
+    <result column="case_seller_id" property="caseSellerId" jdbcType="INTEGER" />
+    <result column="case_review_reason" property="caseReviewReason" jdbcType="VARCHAR" />
+    <result column="add_user" property="addUser" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="case_ext_column1" property="caseExtColumn1" jdbcType="VARCHAR" />
+    <result column="case_ext_column2" property="caseExtColumn2" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, case_student_name, case_student_school, case_student_professional, case_student_year, 
+    case_url, case_type, case_status, case_goods_id, case_seller_id, case_review_reason, 
+    add_user, add_time, update_user, update_time, case_ext_column1, case_ext_column2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from doc_case
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from doc_case
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.Case" >
+    insert into doc_case (id, case_student_name, case_student_school, 
+      case_student_professional, case_student_year, 
+      case_url, case_type, case_status, 
+      case_goods_id, case_seller_id, case_review_reason, 
+      add_user, add_time, update_user, 
+      update_time, case_ext_column1, case_ext_column2
+      )
+    values (#{id,jdbcType=INTEGER}, #{caseStudentName,jdbcType=VARCHAR}, #{caseStudentSchool,jdbcType=VARCHAR}, 
+      #{caseStudentProfessional,jdbcType=INTEGER}, #{caseStudentYear,jdbcType=VARCHAR}, 
+      #{caseUrl,jdbcType=VARCHAR}, #{caseType,jdbcType=INTEGER}, #{caseStatus,jdbcType=INTEGER}, 
+      #{caseGoodsId,jdbcType=INTEGER}, #{caseSellerId,jdbcType=INTEGER}, #{caseReviewReason,jdbcType=VARCHAR}, 
+      #{addUser,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{caseExtColumn1,jdbcType=VARCHAR}, #{caseExtColumn2,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.Case" >
+    insert into doc_case
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="caseStudentName != null" >
+        case_student_name,
+      </if>
+      <if test="caseStudentSchool != null" >
+        case_student_school,
+      </if>
+      <if test="caseStudentProfessional != null" >
+        case_student_professional,
+      </if>
+      <if test="caseStudentYear != null" >
+        case_student_year,
+      </if>
+      <if test="caseUrl != null" >
+        case_url,
+      </if>
+      <if test="caseType != null" >
+        case_type,
+      </if>
+      <if test="caseStatus != null" >
+        case_status,
+      </if>
+      <if test="caseGoodsId != null" >
+        case_goods_id,
+      </if>
+      <if test="caseSellerId != null" >
+        case_seller_id,
+      </if>
+      <if test="caseReviewReason != null" >
+        case_review_reason,
+      </if>
+      <if test="addUser != null" >
+        add_user,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="caseExtColumn1 != null" >
+        case_ext_column1,
+      </if>
+      <if test="caseExtColumn2 != null" >
+        case_ext_column2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="caseStudentName != null" >
+        #{caseStudentName,jdbcType=VARCHAR},
+      </if>
+      <if test="caseStudentSchool != null" >
+        #{caseStudentSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="caseStudentProfessional != null" >
+        #{caseStudentProfessional,jdbcType=INTEGER},
+      </if>
+      <if test="caseStudentYear != null" >
+        #{caseStudentYear,jdbcType=VARCHAR},
+      </if>
+      <if test="caseUrl != null" >
+        #{caseUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="caseStatus != null" >
+        #{caseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="caseGoodsId != null" >
+        #{caseGoodsId,jdbcType=INTEGER},
+      </if>
+      <if test="caseSellerId != null" >
+        #{caseSellerId,jdbcType=INTEGER},
+      </if>
+      <if test="caseReviewReason != null" >
+        #{caseReviewReason,jdbcType=VARCHAR},
+      </if>
+      <if test="addUser != null" >
+        #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseExtColumn1 != null" >
+        #{caseExtColumn1,jdbcType=VARCHAR},
+      </if>
+      <if test="caseExtColumn2 != null" >
+        #{caseExtColumn2,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.Case" >
+    update doc_case
+    <set >
+      <if test="caseStudentName != null" >
+        case_student_name = #{caseStudentName,jdbcType=VARCHAR},
+      </if>
+      <if test="caseStudentSchool != null" >
+        case_student_school = #{caseStudentSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="caseStudentProfessional != null" >
+        case_student_professional = #{caseStudentProfessional,jdbcType=INTEGER},
+      </if>
+      <if test="caseStudentYear != null" >
+        case_student_year = #{caseStudentYear,jdbcType=VARCHAR},
+      </if>
+      <if test="caseUrl != null" >
+        case_url = #{caseUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null" >
+        case_type = #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="caseStatus != null" >
+        case_status = #{caseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="caseGoodsId != null" >
+        case_goods_id = #{caseGoodsId,jdbcType=INTEGER},
+      </if>
+      <if test="caseSellerId != null" >
+        case_seller_id = #{caseSellerId,jdbcType=INTEGER},
+      </if>
+      <if test="caseReviewReason != null" >
+        case_review_reason = #{caseReviewReason,jdbcType=VARCHAR},
+      </if>
+      <if test="addUser != null" >
+        add_user = #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseExtColumn1 != null" >
+        case_ext_column1 = #{caseExtColumn1,jdbcType=VARCHAR},
+      </if>
+      <if test="caseExtColumn2 != null" >
+        case_ext_column2 = #{caseExtColumn2,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.Case" >
+    update doc_case
+    set case_student_name = #{caseStudentName,jdbcType=VARCHAR},
+      case_student_school = #{caseStudentSchool,jdbcType=VARCHAR},
+      case_student_professional = #{caseStudentProfessional,jdbcType=INTEGER},
+      case_student_year = #{caseStudentYear,jdbcType=VARCHAR},
+      case_url = #{caseUrl,jdbcType=VARCHAR},
+      case_type = #{caseType,jdbcType=INTEGER},
+      case_status = #{caseStatus,jdbcType=INTEGER},
+      case_goods_id = #{caseGoodsId,jdbcType=INTEGER},
+      case_seller_id = #{caseSellerId,jdbcType=INTEGER},
+      case_review_reason = #{caseReviewReason,jdbcType=VARCHAR},
+      add_user = #{addUser,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      case_ext_column1 = #{caseExtColumn1,jdbcType=VARCHAR},
+      case_ext_column2 = #{caseExtColumn2,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

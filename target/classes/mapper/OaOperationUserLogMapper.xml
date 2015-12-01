@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OaOperationUserLogMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.OaOperationUserLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="to_user_code" property="toUserCode" jdbcType="VARCHAR" />
+    <result column="do_user_code" property="doUserCode" jdbcType="VARCHAR" />
+    <result column="do_type" property="doType" jdbcType="INTEGER" />
+    <result column="do_time" property="doTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, to_user_code, do_user_code, do_type, do_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_operation_user_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from oa_operation_user_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.OaOperationUserLog" >
+    insert into oa_operation_user_log (id, to_user_code, do_user_code, 
+      do_type, do_time)
+    values (#{id,jdbcType=INTEGER}, #{toUserCode,jdbcType=VARCHAR}, #{doUserCode,jdbcType=VARCHAR}, 
+      #{doType,jdbcType=INTEGER}, #{doTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.OaOperationUserLog" >
+    insert into oa_operation_user_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="toUserCode != null" >
+        to_user_code,
+      </if>
+      <if test="doUserCode != null" >
+        do_user_code,
+      </if>
+      <if test="doType != null" >
+        do_type,
+      </if>
+      <if test="doTime != null" >
+        do_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="toUserCode != null" >
+        #{toUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="doUserCode != null" >
+        #{doUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="doType != null" >
+        #{doType,jdbcType=INTEGER},
+      </if>
+      <if test="doTime != null" >
+        #{doTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.OaOperationUserLog" >
+    update oa_operation_user_log
+    <set >
+      <if test="toUserCode != null" >
+        to_user_code = #{toUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="doUserCode != null" >
+        do_user_code = #{doUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="doType != null" >
+        do_type = #{doType,jdbcType=INTEGER},
+      </if>
+      <if test="doTime != null" >
+        do_time = #{doTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.OaOperationUserLog" >
+    update oa_operation_user_log
+    set to_user_code = #{toUserCode,jdbcType=VARCHAR},
+      do_user_code = #{doUserCode,jdbcType=VARCHAR},
+      do_type = #{doType,jdbcType=INTEGER},
+      do_time = #{doTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

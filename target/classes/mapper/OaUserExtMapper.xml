@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OaUserExtMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.OaUserExt" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="ethnic" property="ethnic" jdbcType="VARCHAR" />
+    <result column="native_place" property="nativePlace" jdbcType="INTEGER" />
+    <result column="anmelden_type" property="anmeldenType" jdbcType="INTEGER" />
+    <result column="health_status" property="healthStatus" jdbcType="VARCHAR" />
+    <result column="emergency_contact_name" property="emergencyContactName" jdbcType="VARCHAR" />
+    <result column="emergency_contact_phone" property="emergencyContactPhone" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="marriage_status" property="marriageStatus" jdbcType="INTEGER" />
+    <result column="politics_status" property="politicsStatus" jdbcType="INTEGER" />
+    <result column="education_status" property="educationStatus" jdbcType="INTEGER" />
+    <result column="graduation_school" property="graduationSchool" jdbcType="VARCHAR" />
+    <result column="profession" property="profession" jdbcType="VARCHAR" />
+    <result column="residence_province" property="residenceProvince" jdbcType="INTEGER" />
+    <result column="residence_city" property="residenceCity" jdbcType="INTEGER" />
+    <result column="residence_area" property="residenceArea" jdbcType="INTEGER" />
+    <result column="redidence_addr" property="redidenceAddr" jdbcType="VARCHAR" />
+    <result column="anmelden_province" property="anmeldenProvince" jdbcType="INTEGER" />
+    <result column="anmelden_city" property="anmeldenCity" jdbcType="INTEGER" />
+    <result column="anmelden_area" property="anmeldenArea" jdbcType="INTEGER" />
+    <result column="anmelden_addr" property="anmeldenAddr" jdbcType="VARCHAR" />
+    <result column="children_situation" property="childrenSituation" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="postcode" property="postcode" jdbcType="VARCHAR" />
+    <result column="stature" property="stature" jdbcType="INTEGER" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="accumulation_fund_no" property="accumulationFundNo" jdbcType="VARCHAR" />
+    <result column="bank_card_no" property="bankCardNo" jdbcType="VARCHAR" />
+    <result column="compony_name" property="componyName" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="add_user_code" property="addUserCode" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_user_code" property="updateUserCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, ethnic, native_place, anmelden_type, health_status, emergency_contact_name, 
+    emergency_contact_phone, birthday, marriage_status, politics_status, education_status, 
+    graduation_school, profession, residence_province, residence_city, residence_area, 
+    redidence_addr, anmelden_province, anmelden_city, anmelden_area, anmelden_addr, children_situation, 
+    telephone, postcode, stature, weight, accumulation_fund_no, bank_card_no, compony_name, 
+    remark, add_time, add_user_code, update_time, update_user_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_user_ext
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from oa_user_ext
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.OaUserExt" >
+    insert into oa_user_ext (id, code, ethnic, 
+      native_place, anmelden_type, health_status, 
+      emergency_contact_name, emergency_contact_phone, 
+      birthday, marriage_status, politics_status, 
+      education_status, graduation_school, profession, 
+      residence_province, residence_city, residence_area, 
+      redidence_addr, anmelden_province, anmelden_city, 
+      anmelden_area, anmelden_addr, children_situation, 
+      telephone, postcode, stature, 
+      weight, accumulation_fund_no, bank_card_no, 
+      compony_name, remark, add_time, 
+      add_user_code, update_time, update_user_code
+      )
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{ethnic,jdbcType=VARCHAR}, 
+      #{nativePlace,jdbcType=INTEGER}, #{anmeldenType,jdbcType=INTEGER}, #{healthStatus,jdbcType=VARCHAR}, 
+      #{emergencyContactName,jdbcType=VARCHAR}, #{emergencyContactPhone,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{marriageStatus,jdbcType=INTEGER}, #{politicsStatus,jdbcType=INTEGER}, 
+      #{educationStatus,jdbcType=INTEGER}, #{graduationSchool,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, 
+      #{residenceProvince,jdbcType=INTEGER}, #{residenceCity,jdbcType=INTEGER}, #{residenceArea,jdbcType=INTEGER}, 
+      #{redidenceAddr,jdbcType=VARCHAR}, #{anmeldenProvince,jdbcType=INTEGER}, #{anmeldenCity,jdbcType=INTEGER}, 
+      #{anmeldenArea,jdbcType=INTEGER}, #{anmeldenAddr,jdbcType=VARCHAR}, #{childrenSituation,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{stature,jdbcType=INTEGER}, 
+      #{weight,jdbcType=INTEGER}, #{accumulationFundNo,jdbcType=VARCHAR}, #{bankCardNo,jdbcType=VARCHAR}, 
+      #{componyName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{addUserCode,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUserCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.OaUserExt" >
+    insert into oa_user_ext
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="ethnic != null" >
+        ethnic,
+      </if>
+      <if test="nativePlace != null" >
+        native_place,
+      </if>
+      <if test="anmeldenType != null" >
+        anmelden_type,
+      </if>
+      <if test="healthStatus != null" >
+        health_status,
+      </if>
+      <if test="emergencyContactName != null" >
+        emergency_contact_name,
+      </if>
+      <if test="emergencyContactPhone != null" >
+        emergency_contact_phone,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="marriageStatus != null" >
+        marriage_status,
+      </if>
+      <if test="politicsStatus != null" >
+        politics_status,
+      </if>
+      <if test="educationStatus != null" >
+        education_status,
+      </if>
+      <if test="graduationSchool != null" >
+        graduation_school,
+      </if>
+      <if test="profession != null" >
+        profession,
+      </if>
+      <if test="residenceProvince != null" >
+        residence_province,
+      </if>
+      <if test="residenceCity != null" >
+        residence_city,
+      </if>
+      <if test="residenceArea != null" >
+        residence_area,
+      </if>
+      <if test="redidenceAddr != null" >
+        redidence_addr,
+      </if>
+      <if test="anmeldenProvince != null" >
+        anmelden_province,
+      </if>
+      <if test="anmeldenCity != null" >
+        anmelden_city,
+      </if>
+      <if test="anmeldenArea != null" >
+        anmelden_area,
+      </if>
+      <if test="anmeldenAddr != null" >
+        anmelden_addr,
+      </if>
+      <if test="childrenSituation != null" >
+        children_situation,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="postcode != null" >
+        postcode,
+      </if>
+      <if test="stature != null" >
+        stature,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="accumulationFundNo != null" >
+        accumulation_fund_no,
+      </if>
+      <if test="bankCardNo != null" >
+        bank_card_no,
+      </if>
+      <if test="componyName != null" >
+        compony_name,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="addUserCode != null" >
+        add_user_code,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateUserCode != null" >
+        update_user_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="ethnic != null" >
+        #{ethnic,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null" >
+        #{nativePlace,jdbcType=INTEGER},
+      </if>
+      <if test="anmeldenType != null" >
+        #{anmeldenType,jdbcType=INTEGER},
+      </if>
+      <if test="healthStatus != null" >
+        #{healthStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyContactName != null" >
+        #{emergencyContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyContactPhone != null" >
+        #{emergencyContactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="marriageStatus != null" >
+        #{marriageStatus,jdbcType=INTEGER},
+      </if>
+      <if test="politicsStatus != null" >
+        #{politicsStatus,jdbcType=INTEGER},
+      </if>
+      <if test="educationStatus != null" >
+        #{educationStatus,jdbcType=INTEGER},
+      </if>
+      <if test="graduationSchool != null" >
+        #{graduationSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="residenceProvince != null" >
+        #{residenceProvince,jdbcType=INTEGER},
+      </if>
+      <if test="residenceCity != null" >
+        #{residenceCity,jdbcType=INTEGER},
+      </if>
+      <if test="residenceArea != null" >
+        #{residenceArea,jdbcType=INTEGER},
+      </if>
+      <if test="redidenceAddr != null" >
+        #{redidenceAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="anmeldenProvince != null" >
+        #{anmeldenProvince,jdbcType=INTEGER},
+      </if>
+      <if test="anmeldenCity != null" >
+        #{anmeldenCity,jdbcType=INTEGER},
+      </if>
+      <if test="anmeldenArea != null" >
+        #{anmeldenArea,jdbcType=INTEGER},
+      </if>
+      <if test="anmeldenAddr != null" >
+        #{anmeldenAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="childrenSituation != null" >
+        #{childrenSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="stature != null" >
+        #{stature,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="accumulationFundNo != null" >
+        #{accumulationFundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNo != null" >
+        #{bankCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="componyName != null" >
+        #{componyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserCode != null" >
+        #{addUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserCode != null" >
+        #{updateUserCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.OaUserExt" >
+    update oa_user_ext
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="ethnic != null" >
+        ethnic = #{ethnic,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null" >
+        native_place = #{nativePlace,jdbcType=INTEGER},
+      </if>
+      <if test="anmeldenType != null" >
+        anmelden_type = #{anmeldenType,jdbcType=INTEGER},
+      </if>
+      <if test="healthStatus != null" >
+        health_status = #{healthStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyContactName != null" >
+        emergency_contact_name = #{emergencyContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyContactPhone != null" >
+        emergency_contact_phone = #{emergencyContactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="marriageStatus != null" >
+        marriage_status = #{marriageStatus,jdbcType=INTEGER},
+      </if>
+      <if test="politicsStatus != null" >
+        politics_status = #{politicsStatus,jdbcType=INTEGER},
+      </if>
+      <if test="educationStatus != null" >
+        education_status = #{educationStatus,jdbcType=INTEGER},
+      </if>
+      <if test="graduationSchool != null" >
+        graduation_school = #{graduationSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        profession = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="residenceProvince != null" >
+        residence_province = #{residenceProvince,jdbcType=INTEGER},
+      </if>
+      <if test="residenceCity != null" >
+        residence_city = #{residenceCity,jdbcType=INTEGER},
+      </if>
+      <if test="residenceArea != null" >
+        residence_area = #{residenceArea,jdbcType=INTEGER},
+      </if>
+      <if test="redidenceAddr != null" >
+        redidence_addr = #{redidenceAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="anmeldenProvince != null" >
+        anmelden_province = #{anmeldenProvince,jdbcType=INTEGER},
+      </if>
+      <if test="anmeldenCity != null" >
+        anmelden_city = #{anmeldenCity,jdbcType=INTEGER},
+      </if>
+      <if test="anmeldenArea != null" >
+        anmelden_area = #{anmeldenArea,jdbcType=INTEGER},
+      </if>
+      <if test="anmeldenAddr != null" >
+        anmelden_addr = #{anmeldenAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="childrenSituation != null" >
+        children_situation = #{childrenSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        postcode = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="stature != null" >
+        stature = #{stature,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="accumulationFundNo != null" >
+        accumulation_fund_no = #{accumulationFundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNo != null" >
+        bank_card_no = #{bankCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="componyName != null" >
+        compony_name = #{componyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserCode != null" >
+        add_user_code = #{addUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserCode != null" >
+        update_user_code = #{updateUserCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.OaUserExt" >
+    update oa_user_ext
+    set code = #{code,jdbcType=VARCHAR},
+      ethnic = #{ethnic,jdbcType=VARCHAR},
+      native_place = #{nativePlace,jdbcType=INTEGER},
+      anmelden_type = #{anmeldenType,jdbcType=INTEGER},
+      health_status = #{healthStatus,jdbcType=VARCHAR},
+      emergency_contact_name = #{emergencyContactName,jdbcType=VARCHAR},
+      emergency_contact_phone = #{emergencyContactPhone,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      marriage_status = #{marriageStatus,jdbcType=INTEGER},
+      politics_status = #{politicsStatus,jdbcType=INTEGER},
+      education_status = #{educationStatus,jdbcType=INTEGER},
+      graduation_school = #{graduationSchool,jdbcType=VARCHAR},
+      profession = #{profession,jdbcType=VARCHAR},
+      residence_province = #{residenceProvince,jdbcType=INTEGER},
+      residence_city = #{residenceCity,jdbcType=INTEGER},
+      residence_area = #{residenceArea,jdbcType=INTEGER},
+      redidence_addr = #{redidenceAddr,jdbcType=VARCHAR},
+      anmelden_province = #{anmeldenProvince,jdbcType=INTEGER},
+      anmelden_city = #{anmeldenCity,jdbcType=INTEGER},
+      anmelden_area = #{anmeldenArea,jdbcType=INTEGER},
+      anmelden_addr = #{anmeldenAddr,jdbcType=VARCHAR},
+      children_situation = #{childrenSituation,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      postcode = #{postcode,jdbcType=VARCHAR},
+      stature = #{stature,jdbcType=INTEGER},
+      weight = #{weight,jdbcType=INTEGER},
+      accumulation_fund_no = #{accumulationFundNo,jdbcType=VARCHAR},
+      bank_card_no = #{bankCardNo,jdbcType=VARCHAR},
+      compony_name = #{componyName,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user_code = #{addUserCode,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_code = #{updateUserCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

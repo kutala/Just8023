@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OaUserVacateMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.OaUserVacate" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="work_over_time" property="workOverTime" jdbcType="INTEGER" />
+    <result column="offset_over_time" property="offsetOverTime" jdbcType="INTEGER" />
+    <result column="annual_vacate_hours" property="annualVacateHours" jdbcType="INTEGER" />
+    <result column="sick_vacate_ hours" property="sickVacateHours" jdbcType="INTEGER" />
+    <result column="yesteryear_vacate_hours" property="yesteryearVacateHours" jdbcType="INTEGER" />
+    <result column="used_annual_vacate_hours" property="usedAnnualVacateHours" jdbcType="INTEGER" />
+    <result column="used_sick_vacate_hours" property="usedSickVacateHours" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_code, work_over_time, offset_over_time, annual_vacate_hours, "sick_vacate_ hours", 
+    yesteryear_vacate_hours, used_annual_vacate_hours, used_sick_vacate_hours
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_user_vacate
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from oa_user_vacate
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.OaUserVacate" >
+    insert into oa_user_vacate (id, user_code, work_over_time, 
+      offset_over_time, annual_vacate_hours, "sick_vacate_ hours", 
+      yesteryear_vacate_hours, used_annual_vacate_hours, 
+      used_sick_vacate_hours)
+    values (#{id,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, #{workOverTime,jdbcType=INTEGER}, 
+      #{offsetOverTime,jdbcType=INTEGER}, #{annualVacateHours,jdbcType=INTEGER}, #{sickVacateHours,jdbcType=INTEGER}, 
+      #{yesteryearVacateHours,jdbcType=INTEGER}, #{usedAnnualVacateHours,jdbcType=INTEGER}, 
+      #{usedSickVacateHours,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.OaUserVacate" >
+    insert into oa_user_vacate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="workOverTime != null" >
+        work_over_time,
+      </if>
+      <if test="offsetOverTime != null" >
+        offset_over_time,
+      </if>
+      <if test="annualVacateHours != null" >
+        annual_vacate_hours,
+      </if>
+      <if test="sickVacateHours != null" >
+        "sick_vacate_ hours",
+      </if>
+      <if test="yesteryearVacateHours != null" >
+        yesteryear_vacate_hours,
+      </if>
+      <if test="usedAnnualVacateHours != null" >
+        used_annual_vacate_hours,
+      </if>
+      <if test="usedSickVacateHours != null" >
+        used_sick_vacate_hours,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="workOverTime != null" >
+        #{workOverTime,jdbcType=INTEGER},
+      </if>
+      <if test="offsetOverTime != null" >
+        #{offsetOverTime,jdbcType=INTEGER},
+      </if>
+      <if test="annualVacateHours != null" >
+        #{annualVacateHours,jdbcType=INTEGER},
+      </if>
+      <if test="sickVacateHours != null" >
+        #{sickVacateHours,jdbcType=INTEGER},
+      </if>
+      <if test="yesteryearVacateHours != null" >
+        #{yesteryearVacateHours,jdbcType=INTEGER},
+      </if>
+      <if test="usedAnnualVacateHours != null" >
+        #{usedAnnualVacateHours,jdbcType=INTEGER},
+      </if>
+      <if test="usedSickVacateHours != null" >
+        #{usedSickVacateHours,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.OaUserVacate" >
+    update oa_user_vacate
+    <set >
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="workOverTime != null" >
+        work_over_time = #{workOverTime,jdbcType=INTEGER},
+      </if>
+      <if test="offsetOverTime != null" >
+        offset_over_time = #{offsetOverTime,jdbcType=INTEGER},
+      </if>
+      <if test="annualVacateHours != null" >
+        annual_vacate_hours = #{annualVacateHours,jdbcType=INTEGER},
+      </if>
+      <if test="sickVacateHours != null" >
+        "sick_vacate_ hours" = #{sickVacateHours,jdbcType=INTEGER},
+      </if>
+      <if test="yesteryearVacateHours != null" >
+        yesteryear_vacate_hours = #{yesteryearVacateHours,jdbcType=INTEGER},
+      </if>
+      <if test="usedAnnualVacateHours != null" >
+        used_annual_vacate_hours = #{usedAnnualVacateHours,jdbcType=INTEGER},
+      </if>
+      <if test="usedSickVacateHours != null" >
+        used_sick_vacate_hours = #{usedSickVacateHours,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.OaUserVacate" >
+    update oa_user_vacate
+    set user_code = #{userCode,jdbcType=VARCHAR},
+      work_over_time = #{workOverTime,jdbcType=INTEGER},
+      offset_over_time = #{offsetOverTime,jdbcType=INTEGER},
+      annual_vacate_hours = #{annualVacateHours,jdbcType=INTEGER},
+      "sick_vacate_ hours" = #{sickVacateHours,jdbcType=INTEGER},
+      yesteryear_vacate_hours = #{yesteryearVacateHours,jdbcType=INTEGER},
+      used_annual_vacate_hours = #{usedAnnualVacateHours,jdbcType=INTEGER},
+      used_sick_vacate_hours = #{usedSickVacateHours,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

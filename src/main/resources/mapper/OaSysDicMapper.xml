@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OaSysDicMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.OaSysDic" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dic_pid" property="dicPid" jdbcType="INTEGER" />
+    <result column="dic_name" property="dicName" jdbcType="VARCHAR" />
+    <result column="dic_group" property="dicGroup" jdbcType="INTEGER" />
+    <result column="dic_order" property="dicOrder" jdbcType="INTEGER" />
+    <result column="dic_msg" property="dicMsg" jdbcType="VARCHAR" />
+    <result column="dic_ext" property="dicExt" jdbcType="VARCHAR" />
+    <result column="dic_status" property="dicStatus" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="add_user_code" property="addUserCode" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_user_code" property="updateUserCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, dic_pid, dic_name, dic_group, dic_order, dic_msg, dic_ext, dic_status, add_time, 
+    add_user_code, update_time, update_user_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_sys_dic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from oa_sys_dic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.OaSysDic" >
+    insert into oa_sys_dic (id, dic_pid, dic_name, 
+      dic_group, dic_order, dic_msg, 
+      dic_ext, dic_status, add_time, 
+      add_user_code, update_time, update_user_code
+      )
+    values (#{id,jdbcType=INTEGER}, #{dicPid,jdbcType=INTEGER}, #{dicName,jdbcType=VARCHAR}, 
+      #{dicGroup,jdbcType=INTEGER}, #{dicOrder,jdbcType=INTEGER}, #{dicMsg,jdbcType=VARCHAR}, 
+      #{dicExt,jdbcType=VARCHAR}, #{dicStatus,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{addUserCode,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUserCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.OaSysDic" >
+    insert into oa_sys_dic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="dicPid != null" >
+        dic_pid,
+      </if>
+      <if test="dicName != null" >
+        dic_name,
+      </if>
+      <if test="dicGroup != null" >
+        dic_group,
+      </if>
+      <if test="dicOrder != null" >
+        dic_order,
+      </if>
+      <if test="dicMsg != null" >
+        dic_msg,
+      </if>
+      <if test="dicExt != null" >
+        dic_ext,
+      </if>
+      <if test="dicStatus != null" >
+        dic_status,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="addUserCode != null" >
+        add_user_code,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateUserCode != null" >
+        update_user_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dicPid != null" >
+        #{dicPid,jdbcType=INTEGER},
+      </if>
+      <if test="dicName != null" >
+        #{dicName,jdbcType=VARCHAR},
+      </if>
+      <if test="dicGroup != null" >
+        #{dicGroup,jdbcType=INTEGER},
+      </if>
+      <if test="dicOrder != null" >
+        #{dicOrder,jdbcType=INTEGER},
+      </if>
+      <if test="dicMsg != null" >
+        #{dicMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="dicExt != null" >
+        #{dicExt,jdbcType=VARCHAR},
+      </if>
+      <if test="dicStatus != null" >
+        #{dicStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserCode != null" >
+        #{addUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserCode != null" >
+        #{updateUserCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.OaSysDic" >
+    update oa_sys_dic
+    <set >
+      <if test="dicPid != null" >
+        dic_pid = #{dicPid,jdbcType=INTEGER},
+      </if>
+      <if test="dicName != null" >
+        dic_name = #{dicName,jdbcType=VARCHAR},
+      </if>
+      <if test="dicGroup != null" >
+        dic_group = #{dicGroup,jdbcType=INTEGER},
+      </if>
+      <if test="dicOrder != null" >
+        dic_order = #{dicOrder,jdbcType=INTEGER},
+      </if>
+      <if test="dicMsg != null" >
+        dic_msg = #{dicMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="dicExt != null" >
+        dic_ext = #{dicExt,jdbcType=VARCHAR},
+      </if>
+      <if test="dicStatus != null" >
+        dic_status = #{dicStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserCode != null" >
+        add_user_code = #{addUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserCode != null" >
+        update_user_code = #{updateUserCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.OaSysDic" >
+    update oa_sys_dic
+    set dic_pid = #{dicPid,jdbcType=INTEGER},
+      dic_name = #{dicName,jdbcType=VARCHAR},
+      dic_group = #{dicGroup,jdbcType=INTEGER},
+      dic_order = #{dicOrder,jdbcType=INTEGER},
+      dic_msg = #{dicMsg,jdbcType=VARCHAR},
+      dic_ext = #{dicExt,jdbcType=VARCHAR},
+      dic_status = #{dicStatus,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user_code = #{addUserCode,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_code = #{updateUserCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

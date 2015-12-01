@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OaUserEducationMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.OaUserEducation" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="from_time" property="fromTime" jdbcType="TIMESTAMP" />
+    <result column="to_time" property="toTime" jdbcType="TIMESTAMP" />
+    <result column="graduation _school" property="graduationSchool" jdbcType="VARCHAR" />
+    <result column="profession" property="profession" jdbcType="VARCHAR" />
+    <result column="consequence" property="consequence" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_code, from_time, to_time, "graduation _school", profession, consequence
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_user_education
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from oa_user_education
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.OaUserEducation" >
+    insert into oa_user_education (id, user_code, from_time, 
+      to_time, "graduation _school", profession, 
+      consequence)
+    values (#{id,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, #{fromTime,jdbcType=TIMESTAMP}, 
+      #{toTime,jdbcType=TIMESTAMP}, #{graduationSchool,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, 
+      #{consequence,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.OaUserEducation" >
+    insert into oa_user_education
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="fromTime != null" >
+        from_time,
+      </if>
+      <if test="toTime != null" >
+        to_time,
+      </if>
+      <if test="graduationSchool != null" >
+        "graduation _school",
+      </if>
+      <if test="profession != null" >
+        profession,
+      </if>
+      <if test="consequence != null" >
+        consequence,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fromTime != null" >
+        #{fromTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="toTime != null" >
+        #{toTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="graduationSchool != null" >
+        #{graduationSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="consequence != null" >
+        #{consequence,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.OaUserEducation" >
+    update oa_user_education
+    <set >
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fromTime != null" >
+        from_time = #{fromTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="toTime != null" >
+        to_time = #{toTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="graduationSchool != null" >
+        "graduation _school" = #{graduationSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        profession = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="consequence != null" >
+        consequence = #{consequence,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.OaUserEducation" >
+    update oa_user_education
+    set user_code = #{userCode,jdbcType=VARCHAR},
+      from_time = #{fromTime,jdbcType=TIMESTAMP},
+      to_time = #{toTime,jdbcType=TIMESTAMP},
+      "graduation _school" = #{graduationSchool,jdbcType=VARCHAR},
+      profession = #{profession,jdbcType=VARCHAR},
+      consequence = #{consequence,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

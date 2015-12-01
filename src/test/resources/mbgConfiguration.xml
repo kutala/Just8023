@@ -18,10 +18,14 @@
     <!-- 注释控制完毕 -->
   
     <!-- 数据库连接 -->
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-        connectionURL="jdbc:mysql://192.168.37.11:3306/mall_apartment?useUnicode=true&amp;characterEncoding=utf8"
-        userId="testUser"
-        password="test1234">
+    <jdbcConnection 
+        driverClass="com.mysql.jdbc.Driver"
+         connectionURL="jdbc:mysql://192.168.37.11:3306/mall?useUnicode=true&amp;characterEncoding=utf8"
+         userId="testUser"
+         password="test1234">
+<!--             connectionURL="jdbc:mysql://192.168.37.116:3306/oa_test?useUnicode=true&amp;characterEncoding=utf8" -->
+<!--             userId="root" -->
+<!--             password="root"> -->
     </jdbcConnection>
 
     <javaTypeResolver >
@@ -40,7 +44,7 @@
     </sqlMapGenerator>
     
     <!-- 要对那些数据表进行生成操作，必须要有一个. -->
-    <table schema="mybatis" tableName="ap_register_user" domainObjectName="ApRegisterUser"
+    <table schema="mybatis" tableName="doc_case" domainObjectName="Case"
         enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="false"
         selectByExampleQueryId="false">    

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OaUserMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.OaUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="cname" property="cname" jdbcType="VARCHAR" />
+    <result column="ename" property="ename" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="department_id" property="departmentId" jdbcType="INTEGER" />
+    <result column="role_id" property="roleId" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="QQ" property="qq" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="attendance_code" property="attendanceCode" jdbcType="VARCHAR" />
+    <result column="face_url" property="faceUrl" jdbcType="VARCHAR" />
+    <result column="leader_code" property="leaderCode" jdbcType="VARCHAR" />
+    <result column="first_word_time" property="firstWordTime" jdbcType="TIMESTAMP" />
+    <result column="hire_time" property="hireTime" jdbcType="TIMESTAMP" />
+    <result column="hire_expire" property="hireExpire" jdbcType="INTEGER" />
+    <result column="hire_type" property="hireType" jdbcType="INTEGER" />
+    <result column="probation_month" property="probationMonth" jdbcType="INTEGER" />
+    <result column="regularization_time" property="regularizationTime" jdbcType="TIMESTAMP" />
+    <result column="demission_time" property="demissionTime" jdbcType="DATE" />
+    <result column="has_unsteadiness" property="hasUnsteadiness" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="add_user	_code" property="addUser	Code" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_user_code" property="updateUserCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, cname, ename, sex, status, password, department_id, role_id, mobile, QQ, 
+    email, attendance_code, face_url, leader_code, first_word_time, hire_time, hire_expire, 
+    hire_type, probation_month, regularization_time, demission_time, has_unsteadiness, 
+    type, id_card, add_time, add_user	_code, update_time, update_user_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from oa_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.OaUser" >
+    insert into oa_user (id, code, cname, 
+      ename, sex, status, 
+      password, department_id, role_id, 
+      mobile, QQ, email, 
+      attendance_code, face_url, leader_code, 
+      first_word_time, hire_time, hire_expire, 
+      hire_type, probation_month, regularization_time, 
+      demission_time, has_unsteadiness, type, 
+      id_card, add_time, add_user	_code, 
+      update_time, update_user_code)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{cname,jdbcType=VARCHAR}, 
+      #{ename,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{password,jdbcType=VARCHAR}, #{departmentId,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, 
+      #{mobile,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{attendanceCode,jdbcType=VARCHAR}, #{faceUrl,jdbcType=VARCHAR}, #{leaderCode,jdbcType=VARCHAR}, 
+      #{firstWordTime,jdbcType=TIMESTAMP}, #{hireTime,jdbcType=TIMESTAMP}, #{hireExpire,jdbcType=INTEGER}, 
+      #{hireType,jdbcType=INTEGER}, #{probationMonth,jdbcType=INTEGER}, #{regularizationTime,jdbcType=TIMESTAMP}, 
+      #{demissionTime,jdbcType=DATE}, #{hasUnsteadiness,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+      #{idCard,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, #{addUser	Code,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUserCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.OaUser" >
+    insert into oa_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="cname != null" >
+        cname,
+      </if>
+      <if test="ename != null" >
+        ename,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="qq != null" >
+        QQ,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="attendanceCode != null" >
+        attendance_code,
+      </if>
+      <if test="faceUrl != null" >
+        face_url,
+      </if>
+      <if test="leaderCode != null" >
+        leader_code,
+      </if>
+      <if test="firstWordTime != null" >
+        first_word_time,
+      </if>
+      <if test="hireTime != null" >
+        hire_time,
+      </if>
+      <if test="hireExpire != null" >
+        hire_expire,
+      </if>
+      <if test="hireType != null" >
+        hire_type,
+      </if>
+      <if test="probationMonth != null" >
+        probation_month,
+      </if>
+      <if test="regularizationTime != null" >
+        regularization_time,
+      </if>
+      <if test="demissionTime != null" >
+        demission_time,
+      </if>
+      <if test="hasUnsteadiness != null" >
+        has_unsteadiness,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="addUser	Code != null" >
+        add_user	_code,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateUserCode != null" >
+        update_user_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null" >
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=INTEGER},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="attendanceCode != null" >
+        #{attendanceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="faceUrl != null" >
+        #{faceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderCode != null" >
+        #{leaderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWordTime != null" >
+        #{firstWordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hireTime != null" >
+        #{hireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hireExpire != null" >
+        #{hireExpire,jdbcType=INTEGER},
+      </if>
+      <if test="hireType != null" >
+        #{hireType,jdbcType=INTEGER},
+      </if>
+      <if test="probationMonth != null" >
+        #{probationMonth,jdbcType=INTEGER},
+      </if>
+      <if test="regularizationTime != null" >
+        #{regularizationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="demissionTime != null" >
+        #{demissionTime,jdbcType=DATE},
+      </if>
+      <if test="hasUnsteadiness != null" >
+        #{hasUnsteadiness,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser	Code != null" >
+        #{addUser	Code,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserCode != null" >
+        #{updateUserCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.OaUser" >
+    update oa_user
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null" >
+        ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null" >
+        department_id = #{departmentId,jdbcType=INTEGER},
+      </if>
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="attendanceCode != null" >
+        attendance_code = #{attendanceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="faceUrl != null" >
+        face_url = #{faceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderCode != null" >
+        leader_code = #{leaderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWordTime != null" >
+        first_word_time = #{firstWordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hireTime != null" >
+        hire_time = #{hireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hireExpire != null" >
+        hire_expire = #{hireExpire,jdbcType=INTEGER},
+      </if>
+      <if test="hireType != null" >
+        hire_type = #{hireType,jdbcType=INTEGER},
+      </if>
+      <if test="probationMonth != null" >
+        probation_month = #{probationMonth,jdbcType=INTEGER},
+      </if>
+      <if test="regularizationTime != null" >
+        regularization_time = #{regularizationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="demissionTime != null" >
+        demission_time = #{demissionTime,jdbcType=DATE},
+      </if>
+      <if test="hasUnsteadiness != null" >
+        has_unsteadiness = #{hasUnsteadiness,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser	Code != null" >
+        add_user	_code = #{addUser	Code,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserCode != null" >
+        update_user_code = #{updateUserCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.OaUser" >
+    update oa_user
+    set code = #{code,jdbcType=VARCHAR},
+      cname = #{cname,jdbcType=VARCHAR},
+      ename = #{ename,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      password = #{password,jdbcType=VARCHAR},
+      department_id = #{departmentId,jdbcType=INTEGER},
+      role_id = #{roleId,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      attendance_code = #{attendanceCode,jdbcType=VARCHAR},
+      face_url = #{faceUrl,jdbcType=VARCHAR},
+      leader_code = #{leaderCode,jdbcType=VARCHAR},
+      first_word_time = #{firstWordTime,jdbcType=TIMESTAMP},
+      hire_time = #{hireTime,jdbcType=TIMESTAMP},
+      hire_expire = #{hireExpire,jdbcType=INTEGER},
+      hire_type = #{hireType,jdbcType=INTEGER},
+      probation_month = #{probationMonth,jdbcType=INTEGER},
+      regularization_time = #{regularizationTime,jdbcType=TIMESTAMP},
+      demission_time = #{demissionTime,jdbcType=DATE},
+      has_unsteadiness = #{hasUnsteadiness,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user	_code = #{addUser	Code,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_code = #{updateUserCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

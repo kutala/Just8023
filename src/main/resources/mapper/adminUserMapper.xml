@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.adminUserMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.adminUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="seller_company_name" property="sellerCompanyName" jdbcType="VARCHAR" />
+    <result column="seller_name" property="sellerName" jdbcType="VARCHAR" />
+    <result column="seller_telephone" property="sellerTelephone" jdbcType="VARCHAR" />
+    <result column="seller_discount" property="sellerDiscount" jdbcType="INTEGER" />
+    <result column="register_time" property="registerTime" jdbcType="TIMESTAMP" />
+    <result column="alipay_account" property="alipayAccount" jdbcType="VARCHAR" />
+    <result column="seller_status" property="sellerStatus" jdbcType="INTEGER" />
+    <result column="seller_email" property="sellerEmail" jdbcType="VARCHAR" />
+    <result column="seller_update_time" property="sellerUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="seller_type" property="sellerType" jdbcType="INTEGER" />
+    <result column="seller_account" property="sellerAccount" jdbcType="VARCHAR" />
+    <result column="seller_password" property="sellerPassword" jdbcType="VARCHAR" />
+    <result column="seller_lock_id" property="sellerLockId" jdbcType="INTEGER" />
+    <result column="seller_note" property="sellerNote" jdbcType="VARCHAR" />
+    <result column="goods_service_speed" property="goodsServiceSpeed" jdbcType="REAL" />
+    <result column="goods_doc_quality" property="goodsDocQuality" jdbcType="REAL" />
+    <result column="goods_service_attitude" property="goodsServiceAttitude" jdbcType="REAL" />
+    <result column="seller_identity" property="sellerIdentity" jdbcType="VARCHAR" />
+    <result column="seller_description" property="sellerDescription" jdbcType="VARCHAR" />
+    <result column="seller_flag" property="sellerFlag" jdbcType="INTEGER" />
+    <result column="seller_salt" property="sellerSalt" jdbcType="VARCHAR" />
+    <result column="effect_time" property="effectTime" jdbcType="TIMESTAMP" />
+    <result column="seller_group_code" property="sellerGroupCode" jdbcType="VARCHAR" />
+    <result column="seller_icon_url" property="sellerIconUrl" jdbcType="VARCHAR" />
+    <result column="seller_is_recommend" property="sellerIsRecommend" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, seller_company_name, seller_name, seller_telephone, seller_discount, register_time, 
+    alipay_account, seller_status, seller_email, seller_update_time, seller_type, seller_account, 
+    seller_password, seller_lock_id, seller_note, goods_service_speed, goods_doc_quality, 
+    goods_service_attitude, seller_identity, seller_description, seller_flag, seller_salt, 
+    effect_time, seller_group_code, seller_icon_url, seller_is_recommend
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from doc_admin_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from doc_admin_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.adminUser" >
+    insert into doc_admin_user (id, seller_company_name, seller_name, 
+      seller_telephone, seller_discount, register_time, 
+      alipay_account, seller_status, seller_email, 
+      seller_update_time, seller_type, seller_account, 
+      seller_password, seller_lock_id, seller_note, 
+      goods_service_speed, goods_doc_quality, goods_service_attitude, 
+      seller_identity, seller_description, seller_flag, 
+      seller_salt, effect_time, seller_group_code, 
+      seller_icon_url, seller_is_recommend)
+    values (#{id,jdbcType=INTEGER}, #{sellerCompanyName,jdbcType=VARCHAR}, #{sellerName,jdbcType=VARCHAR}, 
+      #{sellerTelephone,jdbcType=VARCHAR}, #{sellerDiscount,jdbcType=INTEGER}, #{registerTime,jdbcType=TIMESTAMP}, 
+      #{alipayAccount,jdbcType=VARCHAR}, #{sellerStatus,jdbcType=INTEGER}, #{sellerEmail,jdbcType=VARCHAR}, 
+      #{sellerUpdateTime,jdbcType=TIMESTAMP}, #{sellerType,jdbcType=INTEGER}, #{sellerAccount,jdbcType=VARCHAR}, 
+      #{sellerPassword,jdbcType=VARCHAR}, #{sellerLockId,jdbcType=INTEGER}, #{sellerNote,jdbcType=VARCHAR}, 
+      #{goodsServiceSpeed,jdbcType=REAL}, #{goodsDocQuality,jdbcType=REAL}, #{goodsServiceAttitude,jdbcType=REAL}, 
+      #{sellerIdentity,jdbcType=VARCHAR}, #{sellerDescription,jdbcType=VARCHAR}, #{sellerFlag,jdbcType=INTEGER}, 
+      #{sellerSalt,jdbcType=VARCHAR}, #{effectTime,jdbcType=TIMESTAMP}, #{sellerGroupCode,jdbcType=VARCHAR}, 
+      #{sellerIconUrl,jdbcType=VARCHAR}, #{sellerIsRecommend,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.adminUser" >
+    insert into doc_admin_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sellerCompanyName != null" >
+        seller_company_name,
+      </if>
+      <if test="sellerName != null" >
+        seller_name,
+      </if>
+      <if test="sellerTelephone != null" >
+        seller_telephone,
+      </if>
+      <if test="sellerDiscount != null" >
+        seller_discount,
+      </if>
+      <if test="registerTime != null" >
+        register_time,
+      </if>
+      <if test="alipayAccount != null" >
+        alipay_account,
+      </if>
+      <if test="sellerStatus != null" >
+        seller_status,
+      </if>
+      <if test="sellerEmail != null" >
+        seller_email,
+      </if>
+      <if test="sellerUpdateTime != null" >
+        seller_update_time,
+      </if>
+      <if test="sellerType != null" >
+        seller_type,
+      </if>
+      <if test="sellerAccount != null" >
+        seller_account,
+      </if>
+      <if test="sellerPassword != null" >
+        seller_password,
+      </if>
+      <if test="sellerLockId != null" >
+        seller_lock_id,
+      </if>
+      <if test="sellerNote != null" >
+        seller_note,
+      </if>
+      <if test="goodsServiceSpeed != null" >
+        goods_service_speed,
+      </if>
+      <if test="goodsDocQuality != null" >
+        goods_doc_quality,
+      </if>
+      <if test="goodsServiceAttitude != null" >
+        goods_service_attitude,
+      </if>
+      <if test="sellerIdentity != null" >
+        seller_identity,
+      </if>
+      <if test="sellerDescription != null" >
+        seller_description,
+      </if>
+      <if test="sellerFlag != null" >
+        seller_flag,
+      </if>
+      <if test="sellerSalt != null" >
+        seller_salt,
+      </if>
+      <if test="effectTime != null" >
+        effect_time,
+      </if>
+      <if test="sellerGroupCode != null" >
+        seller_group_code,
+      </if>
+      <if test="sellerIconUrl != null" >
+        seller_icon_url,
+      </if>
+      <if test="sellerIsRecommend != null" >
+        seller_is_recommend,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sellerCompanyName != null" >
+        #{sellerCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null" >
+        #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTelephone != null" >
+        #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerDiscount != null" >
+        #{sellerDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alipayAccount != null" >
+        #{alipayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerStatus != null" >
+        #{sellerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sellerEmail != null" >
+        #{sellerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerUpdateTime != null" >
+        #{sellerUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerType != null" >
+        #{sellerType,jdbcType=INTEGER},
+      </if>
+      <if test="sellerAccount != null" >
+        #{sellerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerPassword != null" >
+        #{sellerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerLockId != null" >
+        #{sellerLockId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerNote != null" >
+        #{sellerNote,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsServiceSpeed != null" >
+        #{goodsServiceSpeed,jdbcType=REAL},
+      </if>
+      <if test="goodsDocQuality != null" >
+        #{goodsDocQuality,jdbcType=REAL},
+      </if>
+      <if test="goodsServiceAttitude != null" >
+        #{goodsServiceAttitude,jdbcType=REAL},
+      </if>
+      <if test="sellerIdentity != null" >
+        #{sellerIdentity,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerDescription != null" >
+        #{sellerDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerFlag != null" >
+        #{sellerFlag,jdbcType=INTEGER},
+      </if>
+      <if test="sellerSalt != null" >
+        #{sellerSalt,jdbcType=VARCHAR},
+      </if>
+      <if test="effectTime != null" >
+        #{effectTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerGroupCode != null" >
+        #{sellerGroupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerIconUrl != null" >
+        #{sellerIconUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerIsRecommend != null" >
+        #{sellerIsRecommend,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.adminUser" >
+    update doc_admin_user
+    <set >
+      <if test="sellerCompanyName != null" >
+        seller_company_name = #{sellerCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null" >
+        seller_name = #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTelephone != null" >
+        seller_telephone = #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerDiscount != null" >
+        seller_discount = #{sellerDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="registerTime != null" >
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alipayAccount != null" >
+        alipay_account = #{alipayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerStatus != null" >
+        seller_status = #{sellerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sellerEmail != null" >
+        seller_email = #{sellerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerUpdateTime != null" >
+        seller_update_time = #{sellerUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerType != null" >
+        seller_type = #{sellerType,jdbcType=INTEGER},
+      </if>
+      <if test="sellerAccount != null" >
+        seller_account = #{sellerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerPassword != null" >
+        seller_password = #{sellerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerLockId != null" >
+        seller_lock_id = #{sellerLockId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerNote != null" >
+        seller_note = #{sellerNote,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsServiceSpeed != null" >
+        goods_service_speed = #{goodsServiceSpeed,jdbcType=REAL},
+      </if>
+      <if test="goodsDocQuality != null" >
+        goods_doc_quality = #{goodsDocQuality,jdbcType=REAL},
+      </if>
+      <if test="goodsServiceAttitude != null" >
+        goods_service_attitude = #{goodsServiceAttitude,jdbcType=REAL},
+      </if>
+      <if test="sellerIdentity != null" >
+        seller_identity = #{sellerIdentity,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerDescription != null" >
+        seller_description = #{sellerDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerFlag != null" >
+        seller_flag = #{sellerFlag,jdbcType=INTEGER},
+      </if>
+      <if test="sellerSalt != null" >
+        seller_salt = #{sellerSalt,jdbcType=VARCHAR},
+      </if>
+      <if test="effectTime != null" >
+        effect_time = #{effectTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerGroupCode != null" >
+        seller_group_code = #{sellerGroupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerIconUrl != null" >
+        seller_icon_url = #{sellerIconUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerIsRecommend != null" >
+        seller_is_recommend = #{sellerIsRecommend,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.adminUser" >
+    update doc_admin_user
+    set seller_company_name = #{sellerCompanyName,jdbcType=VARCHAR},
+      seller_name = #{sellerName,jdbcType=VARCHAR},
+      seller_telephone = #{sellerTelephone,jdbcType=VARCHAR},
+      seller_discount = #{sellerDiscount,jdbcType=INTEGER},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      alipay_account = #{alipayAccount,jdbcType=VARCHAR},
+      seller_status = #{sellerStatus,jdbcType=INTEGER},
+      seller_email = #{sellerEmail,jdbcType=VARCHAR},
+      seller_update_time = #{sellerUpdateTime,jdbcType=TIMESTAMP},
+      seller_type = #{sellerType,jdbcType=INTEGER},
+      seller_account = #{sellerAccount,jdbcType=VARCHAR},
+      seller_password = #{sellerPassword,jdbcType=VARCHAR},
+      seller_lock_id = #{sellerLockId,jdbcType=INTEGER},
+      seller_note = #{sellerNote,jdbcType=VARCHAR},
+      goods_service_speed = #{goodsServiceSpeed,jdbcType=REAL},
+      goods_doc_quality = #{goodsDocQuality,jdbcType=REAL},
+      goods_service_attitude = #{goodsServiceAttitude,jdbcType=REAL},
+      seller_identity = #{sellerIdentity,jdbcType=VARCHAR},
+      seller_description = #{sellerDescription,jdbcType=VARCHAR},
+      seller_flag = #{sellerFlag,jdbcType=INTEGER},
+      seller_salt = #{sellerSalt,jdbcType=VARCHAR},
+      effect_time = #{effectTime,jdbcType=TIMESTAMP},
+      seller_group_code = #{sellerGroupCode,jdbcType=VARCHAR},
+      seller_icon_url = #{sellerIconUrl,jdbcType=VARCHAR},
+      seller_is_recommend = #{sellerIsRecommend,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

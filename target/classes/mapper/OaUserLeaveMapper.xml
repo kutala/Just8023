@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OaUserLeaveMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.OaUserLeave" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="leave_type" property="leaveType" jdbcType="INTEGER" />
+    <result column="leave_hours" property="leaveHours" jdbcType="INTEGER" />
+    <result column="leave_from_time" property="leaveFromTime" jdbcType="TIMESTAMP" />
+    <result column="leave_to_time" property="leaveToTime" jdbcType="TIMESTAMP" />
+    <result column="leave_process_id" property="leaveProcessId" jdbcType="INTEGER" />
+    <result column="do_time" property="doTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_code, status, reason, leave_type, leave_hours, leave_from_time, leave_to_time, 
+    leave_process_id, do_time, end_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_user_leave
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from oa_user_leave
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.OaUserLeave" >
+    insert into oa_user_leave (id, user_code, status, 
+      reason, leave_type, leave_hours, 
+      leave_from_time, leave_to_time, leave_process_id, 
+      do_time, end_time)
+    values (#{id,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{reason,jdbcType=VARCHAR}, #{leaveType,jdbcType=INTEGER}, #{leaveHours,jdbcType=INTEGER}, 
+      #{leaveFromTime,jdbcType=TIMESTAMP}, #{leaveToTime,jdbcType=TIMESTAMP}, #{leaveProcessId,jdbcType=INTEGER}, 
+      #{doTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.OaUserLeave" >
+    insert into oa_user_leave
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="leaveType != null" >
+        leave_type,
+      </if>
+      <if test="leaveHours != null" >
+        leave_hours,
+      </if>
+      <if test="leaveFromTime != null" >
+        leave_from_time,
+      </if>
+      <if test="leaveToTime != null" >
+        leave_to_time,
+      </if>
+      <if test="leaveProcessId != null" >
+        leave_process_id,
+      </if>
+      <if test="doTime != null" >
+        do_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="leaveType != null" >
+        #{leaveType,jdbcType=INTEGER},
+      </if>
+      <if test="leaveHours != null" >
+        #{leaveHours,jdbcType=INTEGER},
+      </if>
+      <if test="leaveFromTime != null" >
+        #{leaveFromTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leaveToTime != null" >
+        #{leaveToTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leaveProcessId != null" >
+        #{leaveProcessId,jdbcType=INTEGER},
+      </if>
+      <if test="doTime != null" >
+        #{doTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.OaUserLeave" >
+    update oa_user_leave
+    <set >
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="leaveType != null" >
+        leave_type = #{leaveType,jdbcType=INTEGER},
+      </if>
+      <if test="leaveHours != null" >
+        leave_hours = #{leaveHours,jdbcType=INTEGER},
+      </if>
+      <if test="leaveFromTime != null" >
+        leave_from_time = #{leaveFromTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leaveToTime != null" >
+        leave_to_time = #{leaveToTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leaveProcessId != null" >
+        leave_process_id = #{leaveProcessId,jdbcType=INTEGER},
+      </if>
+      <if test="doTime != null" >
+        do_time = #{doTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.OaUserLeave" >
+    update oa_user_leave
+    set user_code = #{userCode,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      reason = #{reason,jdbcType=VARCHAR},
+      leave_type = #{leaveType,jdbcType=INTEGER},
+      leave_hours = #{leaveHours,jdbcType=INTEGER},
+      leave_from_time = #{leaveFromTime,jdbcType=TIMESTAMP},
+      leave_to_time = #{leaveToTime,jdbcType=TIMESTAMP},
+      leave_process_id = #{leaveProcessId,jdbcType=INTEGER},
+      do_time = #{doTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

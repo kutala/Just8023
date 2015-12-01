@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OperationSellerLogMapper" >
+  <resultMap id="BaseResultMap" type="com.kuta.just8023.model.OperationSellerLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="operation_status" property="operationStatus" jdbcType="INTEGER" />
+    <result column="operation_type" property="operationType" jdbcType="INTEGER" />
+    <result column="operation_to_id" property="operationToId" jdbcType="INTEGER" />
+    <result column="operation_reason" property="operationReason" jdbcType="VARCHAR" />
+    <result column="operation_do_user_id" property="operationDoUserId" jdbcType="INTEGER" />
+    <result column="operation_time" property="operationTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, operation_status, operation_type, operation_to_id, operation_reason, operation_do_user_id, 
+    operation_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from doc_operation_seller_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from doc_operation_seller_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kuta.just8023.model.OperationSellerLog" >
+    insert into doc_operation_seller_log (id, operation_status, operation_type, 
+      operation_to_id, operation_reason, operation_do_user_id, 
+      operation_time)
+    values (#{id,jdbcType=INTEGER}, #{operationStatus,jdbcType=INTEGER}, #{operationType,jdbcType=INTEGER}, 
+      #{operationToId,jdbcType=INTEGER}, #{operationReason,jdbcType=VARCHAR}, #{operationDoUserId,jdbcType=INTEGER}, 
+      #{operationTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kuta.just8023.model.OperationSellerLog" >
+    insert into doc_operation_seller_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="operationStatus != null" >
+        operation_status,
+      </if>
+      <if test="operationType != null" >
+        operation_type,
+      </if>
+      <if test="operationToId != null" >
+        operation_to_id,
+      </if>
+      <if test="operationReason != null" >
+        operation_reason,
+      </if>
+      <if test="operationDoUserId != null" >
+        operation_do_user_id,
+      </if>
+      <if test="operationTime != null" >
+        operation_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="operationStatus != null" >
+        #{operationStatus,jdbcType=INTEGER},
+      </if>
+      <if test="operationType != null" >
+        #{operationType,jdbcType=INTEGER},
+      </if>
+      <if test="operationToId != null" >
+        #{operationToId,jdbcType=INTEGER},
+      </if>
+      <if test="operationReason != null" >
+        #{operationReason,jdbcType=VARCHAR},
+      </if>
+      <if test="operationDoUserId != null" >
+        #{operationDoUserId,jdbcType=INTEGER},
+      </if>
+      <if test="operationTime != null" >
+        #{operationTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kuta.just8023.model.OperationSellerLog" >
+    update doc_operation_seller_log
+    <set >
+      <if test="operationStatus != null" >
+        operation_status = #{operationStatus,jdbcType=INTEGER},
+      </if>
+      <if test="operationType != null" >
+        operation_type = #{operationType,jdbcType=INTEGER},
+      </if>
+      <if test="operationToId != null" >
+        operation_to_id = #{operationToId,jdbcType=INTEGER},
+      </if>
+      <if test="operationReason != null" >
+        operation_reason = #{operationReason,jdbcType=VARCHAR},
+      </if>
+      <if test="operationDoUserId != null" >
+        operation_do_user_id = #{operationDoUserId,jdbcType=INTEGER},
+      </if>
+      <if test="operationTime != null" >
+        operation_time = #{operationTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kuta.just8023.model.OperationSellerLog" >
+    update doc_operation_seller_log
+    set operation_status = #{operationStatus,jdbcType=INTEGER},
+      operation_type = #{operationType,jdbcType=INTEGER},
+      operation_to_id = #{operationToId,jdbcType=INTEGER},
+      operation_reason = #{operationReason,jdbcType=VARCHAR},
+      operation_do_user_id = #{operationDoUserId,jdbcType=INTEGER},
+      operation_time = #{operationTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
